@@ -1,0 +1,30 @@
+<h1>Игры</h1>
+
+<!-- Вертикальные ссылки -->
+<div class="links">
+    <a href="{% url 'home' %}">Главная</a>
+    <a href="{% url 'shop' %}">Магазин</a>
+    <a href="{% url 'cart' %}">Корзина</a>
+</div>
+
+<!-- Список игр -->
+<ul>
+    {% for game in games %}
+        <li>
+            {{ game.title }} | {{ game.description }}. Стоимость: {{ game.cost }}
+            <button>Купить</button>
+        </li>
+    {% endfor %}
+</ul>
+
+<style>
+    .links {
+        display: flex;
+        flex-direction: column; /* Сделать ссылки вертикальными */
+        margin-bottom: 20px; /* Отступ снизу для отделения от списка */
+    }
+
+    .links a {
+        margin-bottom: 5px; /* Отступ между ссылками */
+    }
+</style>
